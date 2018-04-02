@@ -14,7 +14,7 @@
 
 # Launch first job
 /usr/local/hadoop/bin/hadoop jar /usr/local/hadoop/share/hadoop/tools/lib/hadoop-streaming-2.7.5.jar \
--input  $(pwd)/input \
+-input  $(pwd)/input/data/labeled_data.csv \
 -output $(pwd)/output \
 -mapper "map/mapper.py" \
 -reducer "reduce/reducer.py"
