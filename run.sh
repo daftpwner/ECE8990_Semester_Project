@@ -16,8 +16,8 @@
 /usr/local/hadoop/bin/hadoop jar /usr/local/hadoop/share/hadoop/tools/lib/hadoop-streaming-2.7.5.jar \
 -input  $(pwd)/input \
 -output $(pwd)/output \
--mapper "/bin/cat" \
--reducer "/bin/cat"
+-mapper "map/mapper.py" \
+-reducer "reduce/reducer.py"
 
 # Delete midput/output folders
 rm -r $(pwd)/output
