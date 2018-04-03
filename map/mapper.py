@@ -75,13 +75,18 @@ for line in sys.stdin:
     filt_tweet = filt_tweet.lower()
     # extract words
     words = word_extractor.findall(filt_tweet)
+    words = [ word.strip("'") for word in words ]
     # report scores with word
     if verbose:
         print(tweet)
         print(filt_tweet)
     if report_only_final_class_label:
+        print("#priors\t{} {} {}".format(int(class_id==0),int(class_id==1),int(class_id==2)))
         for word in words:
-            print("{}\t{} {} {}".format(word,int(class_id==0),int(class_id==1),int(class_id==2)))
+            if len(word) > 0:
+                print("{}\t{} {} {}".format(word,int(class_id==0),int(class_id==1),int(class_id==2)))
     else:
+        print("#priors\t{} {} {}".format(word,h_s,o_s,n_s))
         for word in words:
-            print("{}\t{} {} {}".format(word,h_s,o_s,n_s))
+            if len(word) > 0:
+                print("{}\t{} {} {}".format(word,h_s,o_s,n_s))

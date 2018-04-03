@@ -42,7 +42,7 @@ for line in sys.stdin:
     else:
         if current_word:
             # write result to STDOUT
-            print '%s\t%i %i %i' % (current_word,current_hate_count,current_offensive_count,current_neither_count)
+            print '%s,%i,%i,%i' % (current_word,current_hate_count,current_offensive_count,current_neither_count)
         current_hate_count = hate_count
         current_offensive_count = offensive_count
         current_neither_count = neither_count
@@ -50,4 +50,4 @@ for line in sys.stdin:
 
 # do not forget to output the last word if needed!
 if current_word == word:
-    print '%s\t%i %i %i' % (current_word, current_hate_count,current_offensive_count,current_neither_count)
+    print '%s,%i,%i,%i' % (current_word, current_hate_count,current_offensive_count,current_neither_count)
